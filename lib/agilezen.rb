@@ -10,6 +10,10 @@ class Agilezen
   end
 
   def overflows
+    {overflows: overflows_items}
+  end
+
+  def overflows_items
     phases_items.map do |p|
       p if !p['limit'].nil? && phase_overflow?(p['id'], p['limit'])
     end.compact
